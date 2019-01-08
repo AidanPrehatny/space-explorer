@@ -12,8 +12,8 @@ const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
-        LaunchAPI: new LaunchAPI(),
-        UserAPI: new UserAPI({store}),
+        launchAPI: new LaunchAPI(),
+        userAPI: new UserAPI({store})
     })
 })
 
