@@ -1,6 +1,6 @@
-# Apollo tutorial
+# Apollo Space-X Flight Booker
 
-This is the fullstack app for the [Apollo tutorial](http://apollographql.com/docs/tutorial/introduction.html). 🚀
+ 🚀 Ever wanted to explore space? Book a ticket today! 🚀
 
 ## File structure
 
