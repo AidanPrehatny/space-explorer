@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server');
 
-const typeDefs = gql``
+const typeDefs = gql`
 
 type Query {
     launches: [Launch]!
@@ -54,5 +54,6 @@ type Query {
     message: String
     launches: [Launch]
   }
+  `
 
 module.exports = typeDefs;
