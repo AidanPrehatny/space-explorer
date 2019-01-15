@@ -7,6 +7,21 @@ import Header from '../components/header';
 import Button from '../components/button';
 import Loading from '../components/loading';
 
+export const LAUNCH_TILE_DATA = gql`
+  fragment LaunchTile on Launch {
+    id
+    isBooked
+    rocket {
+      id
+      name
+    }
+    mission {
+      name
+      missionPatch
+    }
+  }
+`;
+
 const GET_LAUNCHES = gql`
   query launchList($after: String) {
     launches(after: $after) {
