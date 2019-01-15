@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { render } from "react-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import Pages from './pages';
 
 const client = new ApolloClient({
     uri: "http://localhost:4000/graphql"
@@ -23,14 +24,7 @@ client
   })
   .then(result => console.log(result));
 
-const App = () => (
+render(
   <ApolloProvider client={client}>
-    <div>
-        <h2>My first Apollo app
-            <span role="img" aria-label="gucci">🚀</span>
-        </h2>
-    </div>
-  </ApolloProvider>
-);
-
-render(<App />, document.getElementById("root"));
+    <Pages />
+</ApolloProvider>, document.getElementById('root'));
