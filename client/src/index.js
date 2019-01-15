@@ -1,12 +1,21 @@
 import React from "react";
 import gql from "graphql-tag";
-import { render } from "react-dom";
-import ApolloClient from "apollo-boost";
+import ReactDOM from "react-dom";
+import { InMemoryCache, HttpLink } from "apollo-boost";
+import { ApolloClient } from "apollo-client";
 import { ApolloProvider } from "react-apollo";
-import Pages from './pages';
+import {Pages} from './pages/index.js';
+
+const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-    uri: "http://localhost:4000/graphql"
+  cache,
+  link: new HttpLink({
+    uri: 'http://localhost:4000/graphql',
+    headers: {
+      authorization: localStorage.getItem('token'),
+    },
+  })
 });
 
 client
@@ -24,7 +33,9 @@ client
   })
   .then(result => console.log(result));
 
-render(
+ReactDOM.render(
   <ApolloProvider client={client}>
     <Pages />
-</ApolloProvider>, document.getElementById('root'));
+  </ApolloProvider>,
+  document.getElementById('root')
+);
